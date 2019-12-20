@@ -13,8 +13,7 @@
 
         <el-form-item>
           <el-row :gutter="20">
-            <el-col :span="12"><el-button type="primary" style="width:100%">登陆</el-button></el-col>
-            <el-col :span="12"><el-button style="width:100%">注册</el-button></el-col>
+            <el-col :span="24"><el-button type="primary" style="width:100%" @click="login">登陆</el-button></el-col>
           </el-row>
         </el-form-item>
 
@@ -24,6 +23,8 @@
 </template>
 
 <script>
+import { postRequest } from '../api'
+
 export default {
   name: 'Login',
   data(){
@@ -32,6 +33,18 @@ export default {
       password: null,
     }
   },
+  methods:{
+    login(){
+      let data = {user: this.user, password: this.password }
+      postRequest('http://127.0.0.1:3000/api/login',data).then(
+        res => {
+          if(res.status == 200 && res.request.readyState == 4){
+            this.$router.replace('home')
+          }
+        }
+      ).catch((err) => {console.log(err);this.$message('账户或密码有误')})
+    }
+  }
 }
 </script>
 

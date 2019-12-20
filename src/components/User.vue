@@ -54,7 +54,7 @@ export default {
         userdata: [{}],
         originuserdata: [{}],
         pagesize:6,
-        total:1000,
+        total:1,
         currentPage:1,
       }
     },

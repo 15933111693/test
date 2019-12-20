@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+
 import Login from '../components/Login'
 import Home from '../components/Home'
 import ArticleList from '../components/ArticleList'
@@ -19,11 +20,11 @@ const homeChild = [
     {path:'/user',component: User,name:'用户管理'},
     {path:'/catamana',component: CateMana,name:'栏目管理'},
     {path:'/charts',component: Charts,name:'数据统计'},
-]
+]   
 
 const routes = [
     {path: '/',component: Login,},
-    {path: '/home',component: Home,children: homeChild},
+    {path: '/home',component: Home,children: homeChild,},
     {path: '*',component: error,}
 ] 
 
